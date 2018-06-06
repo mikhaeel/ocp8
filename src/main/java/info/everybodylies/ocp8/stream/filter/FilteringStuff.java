@@ -35,7 +35,9 @@ public class FilteringStuff {
                 new Movie("Oldboy", Movie.Genre.THRILLER, 'R'),
                 new Movie("Shining", Movie.Genre.HORROR, 'U'));
 
+        System.out.println("Non-terminal stream: ");
         notTerminalStream(movies);
+        System.out.println("Terminal stream: ");
         terminalStream(movies);
     }
 
