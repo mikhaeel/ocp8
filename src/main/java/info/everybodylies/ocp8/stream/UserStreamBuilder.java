@@ -9,7 +9,7 @@ public class UserStreamBuilder {
         Stream.Builder<User> sb = Stream.builder();
         Random r = new Random();
         for(int i = 0; i < count; i++) {
-            sb.add(new User(String.valueOf(r.nextInt())));
+            sb.add(new User(String.valueOf(r.nextInt(100))));
         }
         return sb.build();
     }

@@ -3,9 +3,10 @@ package info.everybodylies.ocp8.stream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.DoubleStream;
 
-public class User {
+public class User  implements Comparable<User> {
+    private static int i = 0;
+    private final int id = i++;
     private String name;
     private List<String> roles = new ArrayList<>();
     private List<Double> doubles = new ArrayList<>();
@@ -19,12 +20,12 @@ public class User {
         doubles.add(3.33);
     }
 
-    public String getName() {
-        return name;
+    public int getId() {
+        return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getName() {
+        return name;
     }
 
     public List<String> getRoles() {
@@ -38,7 +39,8 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", roles=" + roles +
                 ", doubles=" + doubles +
                 '}';
@@ -55,5 +57,16 @@ public class User {
     @Override
     public int hashCode() {
         return Objects.hash(name);
+    }
+
+    @Override
+    public int compareTo(User o) {
+        System.out.println("Invoke comparator...");
+        if (this.getId() > o.getId()) {
+            return 1;
+        } else if (this.getId() < o.getId()) {
+            return -1;
+        }
+        return 0;
     }
 }
