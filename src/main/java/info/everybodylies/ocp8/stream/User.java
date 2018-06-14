@@ -10,6 +10,7 @@ public class User  implements Comparable<User> {
     private String name;
     private List<String> roles = new ArrayList<>();
     private List<Double> doubles = new ArrayList<>();
+    private long longId = i;
 
     public User(String name) {
         this.name = name;
@@ -34,6 +35,10 @@ public class User  implements Comparable<User> {
 
     public List<Double> getDoubles() {
         return doubles;
+    }
+
+    public long getLongId() {
+        return longId;
     }
 
     @Override
